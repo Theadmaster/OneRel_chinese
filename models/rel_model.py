@@ -9,7 +9,7 @@ class RelModel(nn.Module):
         self.config = config
         self.bert_dim = config.bert_dim
         # self.bert_encoder = BertModel.from_pretrained("..bert-base-chinse", cache_dir='./pre_trained_bert')
-        self.bert_encoder = BertModel.from_pretrained("./pre_trained_bert/")
+        self.bert_encoder = BertModel.from_pretrained("bert-base-chinese")
         self.relation_matrix = nn.Linear(self.bert_dim * 3, self.config.rel_num * self.config.tag_size)
         self.projection_matrix = nn.Linear(self.bert_dim * 2, self.bert_dim * 3)
 
