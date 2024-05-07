@@ -2,8 +2,8 @@ import json
 import os
 def save_data():
     data_folder = os.path.join('..', 'data', 'ca')
-    json_in_file = 'test.json'
-    json_out_file = os.path.join('test_triples.json')
+    json_in_file = 'train.json'
+    json_out_file = os.path.join('train_triples.json')
     res = []
     with open(json_in_file, 'r', encoding='utf-8') as file:
         for line in file:
@@ -17,7 +17,7 @@ def save_data():
                 obj = rel['object']
                 item = [sub, pred, obj]
                 new_rels.append(item)
-            res.append({'text': text, 'triple_list': new_rels})
+            res.append({'text': ' '.join(text), 'triple_list': new_rels})
 
     with open(os.path.join(data_folder, json_out_file), 'w', encoding='utf-8') as file:
         for item in res:
