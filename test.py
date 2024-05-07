@@ -35,6 +35,8 @@ parser.add_argument('--bert_max_len', type=int, default=300)
 parser.add_argument('--rel_num', type=int, default=8)
 parser.add_argument('--period', type=int, default=100)
 parser.add_argument('--debug', type=bool, default=False)
+parser.add_argument('--checkpoint', type=str, default='', required=True)
+
 args = parser.parse_args()
 
 con = config.Config(args)
@@ -45,6 +47,7 @@ model = {
     'OneRel': models.RelModel
 }
 
-model_name = "OneRel_DATASET_ca_LR_5e-06_BS_4Max_len150Bert_ML300DP_0.2EDP_0.1"
+# model_name = "OneRel_DATASET_ca_LR_5e-06_BS_4Max_len150Bert_ML300DP_0.2EDP_0.1"
+model_name = args.checkpoint
 
 fw.testall(model[args.model_name], model_name)
