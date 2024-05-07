@@ -14,7 +14,7 @@ from transformers import BertTokenizer
 
 class ZhTokenizer:
     def __init__(self):
-        self.tokenizer = BertTokenizer.from_pretrained('pre_trained_bert/chinese-bert-wwm-ext/vocab.txt')
+        self.tokenizer = BertTokenizer.from_pretrained('bert-base-chinese')
         self.vocab2id = self.tokenizer.vocab
 
     def tokenize(self, text):
@@ -124,7 +124,7 @@ class REDataset(Dataset):
                 masks = masks[:text_len]
             token_ids = np.array(token_ids)
             # masks = np.array(masks) + 1
-            masks = np-.array(masks)
+            masks = np.array(masks)
             mask_length = len(masks)
             # loss_masks = np.array(masks) + 1
             loss_masks = np.array(masks)
@@ -145,7 +145,7 @@ def re_collate_fn(batch):
     # if use WebNLG_star, modify 24 to 171
     # if use duie, modify 24 to 48
     # batch_triple_matrix = torch.LongTensor(cur_batch_len, 24, max_text_len, max_text_len).zero_()
-    batch_triple_matrix = torch.LongTensor(cur_batch_len, 48, max_text_len, max_text_len).zero_()
+    batch_triple_matrix = torch.LongTensor(cur_batch_len, 8, max_text_len, max_text_len).zero_()
 
     for i in range(cur_batch_len):
         batch_token_ids[i, :text_len[i]].copy_(torch.from_numpy(token_ids[i]))
