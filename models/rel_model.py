@@ -1,5 +1,5 @@
 from torch import nn
-from transformers import *
+from transformers import BertModel
 import torch
 
 
