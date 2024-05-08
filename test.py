@@ -47,7 +47,7 @@ model = {
     'OneRel': models.RelModel
 }
 
-# model_name = "OneRel_DATASET_ca_LR_5e-06_BS_4Max_len150Bert_ML300DP_0.2EDP_0.1"
-model_name = args.checkpoint
+model_name = "OneRel_DATASET_ca_LR_5e-06_BS_4Max_len150Bert_ML300DP_0.2EDP_0.1"
+# model_name = args.checkpoint
 
 fw.testall(model[args.model_name], model_name)
