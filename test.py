@@ -35,7 +35,7 @@ parser.add_argument('--bert_max_len', type=int, default=300)
 parser.add_argument('--rel_num', type=int, default=8)
 parser.add_argument('--period', type=int, default=100)
 parser.add_argument('--debug', type=bool, default=False)
-parser.add_argument('--checkpoint', type=str, default='', required=True)
+# parser.add_argument('--checkpoint', type=str, default='', required=True)
 
 args = parser.parse_args()
 
